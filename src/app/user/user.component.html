@@ -3,19 +3,15 @@
     <table>
       <tr class="tableTitleRow">
         <th>Name</th>
-        <th>Email</th>
+        <th>Zip code</th>
         <th>City</th>
       </tr>
-      <tr>
-        <td>dfgdfg</td>
-        <td>Emdfgfdgail</td>
-        <td>Cisfdsdsfty</td>
+      <tr *ngFor="let user of allUsers">
+        <td>{{ user.firstName }} {{ user.surName }}</td>
+        <td>{{ user.zipCode }}</td>
+        <td>{{ user.city }}</td>
       </tr>
-      <tr>
-        <td>dfgdfg</td>
-        <td>Emdfgfdgail</td>
-        <td>Cisfdsdsfty</td>
-      </tr>
+
     </table>
   </mat-card-content>
 </mat-card>
