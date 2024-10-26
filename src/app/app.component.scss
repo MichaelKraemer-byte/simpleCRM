@@ -21,8 +21,13 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    padding: 22px 16px 22px 16px;
+    padding: 8px 16px 8px 16px;
     border-bottom: 1px solid rgba(27,27,27, 0.4);
+    max-height: 64px;
+    gap: 16px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
 }
 
 .menu-items{
@@ -37,14 +42,16 @@ li{
     border-radius: 2px;
 
     &:hover {
-        background-color: rgba(127, 255, 212, 0.493);
+        background-color: rgb(192, 104, 139,0.484);
         cursor: pointer;
-    }
-    &:focus{
-        box-shadow: inset 0 0 0 1.6px #3dcfb7b3;
     }
 }
 
 .router-container{
     padding: 56px;
+}
+
+.menu-logo{
+    width: 48px;
+    height: auto;
 }
