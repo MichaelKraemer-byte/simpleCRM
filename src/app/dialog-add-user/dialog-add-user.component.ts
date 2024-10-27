@@ -7,7 +7,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../class/user.class';
 import { FormsModule } from '@angular/forms';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, doc, setDoc } from '@angular/fire/firestore';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CommonModule } from '@angular/common';
 
@@ -48,8 +48,13 @@ export class DialogAddUserComponent {
     this.user.birthDate = this.birthDate.getTime();
     
     this.loading = true;
-    const userCollection = collection(this.firestore, 'users'); // Specify the collection
+    const userCollection = collection(this.firestore, 'users'); 
     addDoc(userCollection, { ...this.user.toJSON() }) 
+      .then((docRef) => {
+        this.user.id = docRef.id;
+        const userRef = doc(this.firestore, 'users', this.user.id);
+        return setDoc(userRef, { id: this.user.id }, { merge: true });
+      })
       .then(() => {
         this.loading = false;
         this.dialogRef.close();

@@ -5,9 +5,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import {MatCardModule} from '@angular/material/card';
-import { collection, Firestore, getDoc, collectionData } from '@angular/fire/firestore';
+import { collection, Firestore, getDoc, collectionData, CollectionReference } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { User } from '../class/user.class';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ import { User } from '../class/user.class';
     MatTooltipModule,
     MatDialogModule,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    RouterLink
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
@@ -45,6 +47,6 @@ export class UserComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialog.open(DialogAddUserComponent)
+    this.dialog.open(DialogAddUserComponent);
   }
 }

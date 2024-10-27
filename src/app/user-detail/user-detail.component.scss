@@ -1,0 +1,38 @@
+.user-detail-header {
+    height: 300px;
+    background-color: rgb(215, 77, 39);
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    padding: 24px;
+    box-sizing: border-box;
+    img{
+        border-radius: 100px;
+        width: 120px;
+        height: auto;
+    }
+}
+
+.header-container{
+    display: flex;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-left: 32px;
+    h2, p {
+        margin-bottom: 0px;
+    }
+}
+
+.editButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    &:hover{
+        cursor: pointer;
+    }
+}

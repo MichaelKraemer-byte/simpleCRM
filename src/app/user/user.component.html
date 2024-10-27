@@ -3,12 +3,12 @@
     <table>
       <tr class="tableTitleRow">
         <th>Name</th>
-        <th>Zip code</th>
+        <th>Email</th>
         <th>City</th>
       </tr>
-      <tr *ngFor="let user of allUsers">
+      <tr *ngFor="let user of allUsers" [routerLink]="'/user/' + user.id">
         <td>{{ user.firstName }} {{ user.surName }}</td>
-        <td>{{ user.zipCode }}</td>
+        <td>{{ user.email }}</td>
         <td>{{ user.city }}</td>
       </tr>
 

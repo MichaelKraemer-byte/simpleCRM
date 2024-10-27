@@ -5,15 +5,20 @@
   <div class="allInputsContainer">
 
     <div class="inputContainer">
-      <mat-form-field appearance="outline" class="formField">
+      <mat-form-field appearance="outline" class="formField mr-16">
         <mat-label>First name</mat-label>
         <input [disabled]="loading" matInput [(ngModel)]="user.firstName">
       </mat-form-field>
-      <mat-form-field appearance="outline" class="formField mr-16">
+      <mat-form-field appearance="outline" class="formField">
         <mat-label>Surname</mat-label>
         <input [disabled]="loading" matInput [(ngModel)]="user.surName">
       </mat-form-field>
     </div>
+
+    <mat-form-field appearance="outline" class="formField">
+      <mat-label>Email</mat-label>
+      <input [disabled]="loading" matInput [(ngModel)]="user.email">
+    </mat-form-field>
 
     <mat-form-field>
       <mat-label>Choose a date</mat-label>
