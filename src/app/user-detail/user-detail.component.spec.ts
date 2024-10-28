@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserDetailComponent } from './user-detail.component';
+import { ActivatedRoute, provideRouter, RouterModule } from '@angular/router';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -8,7 +10,13 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetailComponent]
+      imports: [
+        UserDetailComponent,
+        RouterModule.forRoot([])
+      ],
+      providers: [
+        { provide: Firestore, useValue: {} }
+      ]    
     })
     .compileComponents();
     
@@ -18,6 +26,6 @@ describe('UserDetailComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).to.be.true;
   });
 });

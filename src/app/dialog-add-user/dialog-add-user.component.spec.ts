@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogAddUserComponent } from './dialog-add-user.component';
+import { FirebaseAppModule, initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { Firestore, getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { firebaseapp } from '../app.config';
+import { MatDialogRef } from '@angular/material/dialog';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 describe('DialogAddUserComponent', () => {
   let component: DialogAddUserComponent;
@@ -8,7 +14,16 @@ describe('DialogAddUserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogAddUserComponent]
+      imports: [
+        DialogAddUserComponent,
+        FirebaseAppModule,
+      ],
+      providers: [
+        { provide: Firestore, useValue: {} }, 
+        { provide: MatDialogRef, useValue: {} },
+        provideNativeDateAdapter(),
+        provideAnimationsAsync(),
+      ]
     })
     .compileComponents();
     
@@ -18,6 +33,6 @@ describe('DialogAddUserComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).to.be.true;
   });
 });

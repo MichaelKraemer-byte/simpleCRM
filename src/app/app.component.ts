@@ -27,7 +27,7 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-
+  
   firestore: Firestore = inject(Firestore);
 
   @Input() opened: boolean = true;
@@ -35,7 +35,7 @@ export class AppComponent {
   items$: Observable<any[]>;
 
   constructor() {
-    const aCollection = collection(this.firestore, 'items')
+    const aCollection = collection(this.firestore, 'items');
     this.items$ = collectionData(aCollection);
   }
 

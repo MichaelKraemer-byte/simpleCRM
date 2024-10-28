@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
+import { Firestore, getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { firebaseapp } from '../app.config';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -8,7 +11,13 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserComponent]
+      imports: [UserComponent],
+      providers: [
+        { provide: Firestore, useValue: {} },
+        provideFirebaseApp(() => 
+          initializeApp(firebaseapp)
+        ), provideFirestore(() => getFirestore())
+      ]
     })
     .compileComponents();
     
@@ -18,6 +27,6 @@ describe('UserComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).to.be.true;
   });
 });
